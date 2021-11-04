@@ -1,0 +1,84 @@
+<h2 mat-dialog-title>{{ constants.editar }} Cliente</h2>
+<p></p>
+
+<mat-dialog-content [formGroup]="form">
+  <input type="hidden" formControlName="id" [(ngModel)]="cliente.id">
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="{{ constants.nombre }}" formControlName="nombre"
+          [(ngModel)]="cliente.nombre" autocomplete="off" required>
+          <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.nombre.errors.max">{{ constants.valormaximo }} 25</div>
+          </div>
+      </mat-form-field>
+    </div>
+
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="{{ constants.telefono }}" formControlName="telefono"
+          [(ngModel)]="cliente.telefono" autocomplete="off" required>
+          <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+            <div *ngIf="f.telefono.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.telefono.errors.max">{{ constants.valormaximo }} 25</div>
+            <div *ngIf="f.telefono.errors.pattern">{{ constants.formato_correo }}</div>
+          </div>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="{{ constants.sharedKey }}" formControlName="sharedKey"
+          [(ngModel)]="cliente.sharedKey" autocomplete="off" required>
+          <div *ngIf="submitted && f.sharedKey.errors" class="invalid-feedback">
+            <div *ngIf="f.sharedKey.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.sharedKey.errors.max">{{ constants.valormaximo }} 25</div>
+          </div>
+      </mat-form-field>
+    </div>
+    <div class="item" fxFlex>
+      <mat-form-field>
+        <input matInput [matDatepicker]="dp" placeholder="Fecha de creación" [(ngModel)]="cliente.fechaCreacion"  formControlName="fechaCreacion">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+        <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+          <div *ngIf="f.correo.errors.required">{{ constants.campoRequerido }}</div>
+        </div>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+      <mat-form-field class="w-100">
+        <input matInput placeholder="{{ constants.correo }}" formControlName="correo"
+          [(ngModel)]="cliente.correo" autocomplete="off" required>
+          <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+            <div *ngIf="f.correo.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.correo.errors.max">{{ constants.valormaximo }} 25</div>
+          </div>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+
+
+<p></p>
+
+</mat-dialog-content>
+
+<mat-divider class="mat-divider mat-divider-horizontal"></mat-divider>
+
+<mat-dialog-actions align="end">
+  <button mat-button color="warn" (click)="close()">
+    <mat-icon class="m-1">close</mat-icon>{{ constants.cancelar }}
+  </button>
+  <button mat-raised-button [disabled]="disableSubmit" color="primary" (click)="onSubmit()">
+    <mat-icon class="m-1">save</mat-icon>{{ constants.guardar }}
+  </button>
+</mat-dialog-actions>
+

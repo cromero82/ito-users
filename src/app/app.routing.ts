@@ -9,11 +9,6 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/clientes',
-        pathMatch: 'full'
-      },
-      {
-        path: '',
         redirectTo: '/usuarios',
         pathMatch: 'full'
       },

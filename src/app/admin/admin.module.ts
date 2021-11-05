@@ -10,22 +10,15 @@ import { TemaListComponent } from './tema/tema-list/tema-list.component';
 import { TemaEditComponent } from './tema/tema-edit/tema-edit.component';
 import { MatSelectFilterModule } from 'mat-select-filter';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { HassPermissionDirective } from 'app/administracion/directivas/hass-permission.directive';
 import { UsuarioAdminComponent } from './usuario/usuario-admin/usuario-admin.component';
 import { UsuarioEditComponent } from './usuario/usuario-edit/usuario-edit.component';
 import { ArrayListPipe } from './pipe/array-list.pipe';
 import { ChartistModule } from 'ng-chartist';
-import { ClienteAdminComponent } from './cliente/cliente-admin/cliente-admin.component';
-import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.component';
 
 export const AdminRoutes: Routes = [
   {
     path: 'usuarios',
       component: UsuarioAdminComponent
-  },
-  {
-    path: 'clientes',
-      component: ClienteAdminComponent
   }
 ];
 
@@ -33,7 +26,7 @@ export const AdminRoutes: Routes = [
   declarations: [
     GeneralConfirmComponent,
     TemaListComponent, TemaEditComponent,
-    HassPermissionDirective, UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe, ClienteAdminComponent, ClienteEditComponent
+    UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe
   ],
   imports: [
     CommonModule,

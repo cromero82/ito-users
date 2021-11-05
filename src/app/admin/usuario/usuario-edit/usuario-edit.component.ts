@@ -59,17 +59,8 @@ export class UsuarioEditComponent implements OnInit{
       Validators.minLength(10),
       Validators.maxLength(150),
       Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')
-    ]],
-/*     'avatar': [null, [Validators.required]],
-    'password': [null, [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.maxLength(50),
-      Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$')
-    ]],
-    'repetirPassword': [null, Validators.required],
-    'roles': [null, Validators.required] */
-   });
+      ]]
+    });
    this.form.get('activo')!.setValue(this.usuario.activo);
 
   }

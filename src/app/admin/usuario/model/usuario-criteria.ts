@@ -27,16 +27,21 @@ export class UsuarioCriteria extends UsuarioModel  {
   /** Método encargado de crear uns instancia vacía del componente */
   constructor() {
       super();
-      //this.grupo.id = ''
-      // this.nombre = '';
+      this.nombreusuario = '';
+      this.correo = '';
+      this.nombre = '';
+      this.apellido = '';
   }
 
   /** Método encargado de construir el json de consulta de información para el servicio */
   public getUrlParameters(): string {
-    return 'param=' + this.param +
-      '&page=' + (this.page) +
+    return 'page=' + (this.page) +
       '&size=' + this.size +
       '&sortBy=' + this.sortBy +
-      '&sortOrder=' + this.sortOrder;
+      '&sortOrder=' + this.sortOrder+
+      '&nombreusuario='+ this.nombreusuario+
+      '&nombre='+ this.nombre+
+      '&apellido='+ this.apellido+
+      '&correo='+ this.correo;
   }
 }

@@ -8,6 +8,79 @@
     </div>
 
     </mat-card-title>
+
+    <form [formGroup]="filterForm">
+      <mat-card>
+
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+          <div class="item" fxFlex>
+            <mat-form-field class="w-20">
+              <input matInput formControlName="nombreusuario" placeholder="Usuario" autocomplete="off">
+            </mat-form-field>
+          </div>
+      
+          <div class="item" fxFlex>
+              <mat-form-field class="w-20">
+                <input matInput formControlName="correo" placeholder="Email" autocomplete="off"> 
+              </mat-form-field>
+          </div>
+
+          <div class="item" fxFlex>
+            <mat-form-field class="w-20">
+              <input matInput formControlName="nombre"  placeholder="Nombres" autocomplete="off">
+            </mat-form-field>
+        </div>
+          <div class="item" fxFlex>
+            <mat-form-field class="w-20">
+              <input matInput formControlName="apellido" placeholder="Apellidos" autocomplete="off">
+            </mat-form-field>
+        </div>
+        <div class="item" fxFlex>
+          
+            <button type="submit" (click)="searchData()" mat-button  style="width: 150px;" color="primary">Filtrar</button>
+          
+        </div>
+        </div>
+
+        <!-- <div mat-dialog-content class="filterForm">
+          <div class="item">
+            <mat-form-field class="w-30">
+              <input matInput formControlName="nombreusuario" placeholder="Usuario">
+            </mat-form-field>
+          </div>
+          <div class="item">
+            <mat-form-field class="w-30">
+              <input matInput formControlName="correo" placeholder="Email">
+            </mat-form-field>
+          </div>
+          <div class="modal-inforce__footer">
+            <button type="submit" (click)="searchData()" mat-button class="primary">Filtrar</button>
+          </div>
+        </div> -->
+      </mat-card>
+      
+    </form>
+
+  
+
+<!--   <mat-card-content>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+      <div class="item" fxFlex>
+        <mat-form-field class="w-50">
+          <input matInput type="text" placeholder="Email">
+        </mat-form-field>
+      </div>
+
+      <div class="item" fxFlex>
+        <mat-form-field class="w-50">
+          <input matInput type="text" placeholder="usuario">
+        </mat-form-field>
+      </div>
+  
+  
+    </div>
+  </mat-card-content> -->
+
     <mat-card-subtitle>{{ titulo}}</mat-card-subtitle>
 
 

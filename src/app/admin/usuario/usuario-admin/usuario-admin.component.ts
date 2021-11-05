@@ -161,9 +161,4 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
     );
   }
 
-  grupoNivelTemas(grupoNivel: UsuarioModel): void {
-    this.tempDataService.setDataNivel2( JSON.stringify(grupoNivel));
-    this.router.navigate(['/grupo-nivel-tema']);
-  }
-
 }

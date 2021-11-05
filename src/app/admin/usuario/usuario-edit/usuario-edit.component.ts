@@ -79,22 +79,11 @@ export class UsuarioEditComponent implements OnInit{
 
   onSubmit() {
     this.submitted = true;
-    /* if (this.usuario.password !== this.usuario.repetirPassword) {
-      this.utilitiesService.simpleWarningMessage('La contraseña es distinta en cada campo', this.snackBar);
-      return;
-    } */
-    /* this.usuario.username = this.usuario.email; */
-    //this.form.get('activo')!.setValue(this.usuario.activo);
 
     this.markFormGroupTouched(this.form);
     // se actualizan las listas con el model
     this.usuario = this.form.value;
-    // if (this.form.value.listatipopregunta !== undefined) {
-    //   this.form.get('tipopregunta')!.setValue(this.form.value.listatipopregunta.id);
-    // }
     if (this.form.valid === true) {
-      // this.enviada = true;
-      // this.disabledBtn_Login = true;
       this.save();
     } else {
       this.utilitiesService.formWarningMessage(this.snackBar);

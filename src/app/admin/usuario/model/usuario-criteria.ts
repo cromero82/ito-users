@@ -9,15 +9,16 @@ export class UsuarioCriteria extends UsuarioModel  {
     this.sortBy = sort.active;
   }
 
+  public param = '';
 
   /** Filtro para identificar si es activo */
-  public activo = true;
+  public activo = 'true';
   /** Filtro de la pagina actual usado para paginador */
   public page = 0;
   /** Filtro de cantidad de registros por página */
   public size = 10;
   /** nombre de la columna por la cual se realizará el ordenamiento */
-  public sortBy = 'apellido';
+  public sortBy = 'nombre';
   /** tipo de ordenamiento de la grilla */
   public sortOrder = 'asc';
 
@@ -32,7 +33,8 @@ export class UsuarioCriteria extends UsuarioModel  {
 
   /** Método encargado de construir el json de consulta de información para el servicio */
   public getUrlParameters(): string {
-    return '&page=' + (this.page) +
+    return 'param=' + this.param +
+      '&page=' + (this.page) +
       '&size=' + this.size +
       '&sortBy=' + this.sortBy +
       '&sortOrder=' + this.sortOrder;

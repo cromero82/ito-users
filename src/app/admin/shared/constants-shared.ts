@@ -1,4 +1,5 @@
 export const CONSTANTS_SHARED = {
+  nombreusuario: 'Usuario',
   rol_administrador: 'ADMINISTRADOR',
   rol_tutor: 'TUTOR',
   rol_estudiante: 'ESTUDIANTE',
@@ -115,9 +116,9 @@ export const CONSTANTS_SHARED = {
   noRadicado: 'El radicado no fue encontrado',
   noResultados: 'No se encuentran resultados.',
   noResultadosEstado: 'No se encuentran resultados para este estado.',
-  nombre: 'Nombre',
-  apellido: 'Apellido',
-  correo: 'Correo electrónico',
+  nombre: 'Nombres',
+  apellido: 'Apellidos',
+  correo: 'Email',
   contrasenia: 'Contraseña',
   repetirContrasenia: 'Repetir contraseña',
   objeto: 'objeto',

@@ -40,7 +40,7 @@ export class UsuarioEditComponent implements OnInit{
       this.clone = JSON.parse(JSON.stringify(this.usuario));
     }else {
       this.usuario.id = 0;
-      this.usuario.avatar = 'av-1.png';
+      /* this.usuario.avatar = 'av-1.png'; */
     }
   }
 
@@ -51,15 +51,16 @@ export class UsuarioEditComponent implements OnInit{
    this.form = this.formBuilder.group({
     'id': [null, null],
     'activo': [null, Validators.compose([Validators.required])],
+    'nombreusuario': [null, [Validators.required]],
     'nombre': [null, [Validators.required]],
     'apellido': [null, [Validators.required]],
-    'email': [null, [
+    'correo': [null, [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(150),
       Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')
     ]],
-    'avatar': [null, [Validators.required]],
+/*     'avatar': [null, [Validators.required]],
     'password': [null, [
       Validators.required,
       Validators.minLength(8),
@@ -67,10 +68,9 @@ export class UsuarioEditComponent implements OnInit{
       Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$')
     ]],
     'repetirPassword': [null, Validators.required],
-    'roles': [null, Validators.required]
+    'roles': [null, Validators.required] */
    });
    this.form.get('activo')!.setValue(this.usuario.activo);
-   this.form.get('avatar')!.setValue(this.usuario.avatar);
 
   }
 
@@ -88,11 +88,11 @@ export class UsuarioEditComponent implements OnInit{
 
   onSubmit() {
     this.submitted = true;
-    if (this.usuario.password !== this.usuario.repetirPassword) {
+    /* if (this.usuario.password !== this.usuario.repetirPassword) {
       this.utilitiesService.simpleWarningMessage('La contraseña es distinta en cada campo', this.snackBar);
       return;
-    }
-    this.usuario.username = this.usuario.email;
+    } */
+    /* this.usuario.username = this.usuario.email; */
     //this.form.get('activo')!.setValue(this.usuario.activo);
 
     this.markFormGroupTouched(this.form);

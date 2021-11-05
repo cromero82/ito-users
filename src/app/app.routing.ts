@@ -14,6 +14,11 @@ export const AppRoutes: Routes = [
       },
       {
         path: '',
+        redirectTo: '/usuarios',
+        pathMatch: 'full'
+      },
+      {
+        path: '',
         loadChildren:
           () => import('./material-component/material.module').then(m => m.MaterialComponentsModule)
       },

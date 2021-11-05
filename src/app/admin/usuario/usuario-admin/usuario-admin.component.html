@@ -21,8 +21,15 @@
       <div [hidden]="loading">
           <mat-table #table [dataSource]="usuarioDatasource"
                      matSort
-                     matSortActive="apellido"
+                     matSortActive="nombre"
                      matSortDirection="asc">
+
+                <ng-container matColumnDef="nombreusuario">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.nombreusuario}}</strong> </mat-header-cell>
+                      <mat-cell *matCellDef="let usuario">
+                         {{usuario.nombreusuario}}
+                      </mat-cell>
+                  </ng-container>
 
               <ng-container matColumnDef="nombre">
                   <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.nombre}}</strong> </mat-header-cell>
@@ -38,18 +45,18 @@
                 </mat-cell>
             </ng-container>
 
-              <ng-container matColumnDef="roles">
-                <mat-header-cell *matHeaderCellDef mat-sort-header><strong> Roles</strong> </mat-header-cell>
-                <mat-cell *matCellDef="let usuario">
-                  <pre>{{ usuario.roles | arrayListPipe:"nombre"  }}</pre>
-                </mat-cell>
-            </ng-container>
+            <ng-container matColumnDef="correo">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.correo}}</strong> </mat-header-cell>
+              <mat-cell *matCellDef="let usuario">
+                 {{usuario.correo}}
+              </mat-cell>
+          </ng-container>
 
               <ng-container matColumnDef="activo">
                 <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{ constants.activo }}</strong></mat-header-cell>
                 <mat-cell *matCellDef="let usuario" [attr.data-label]="constants.activo">
-                    <span class="alert alert-danger" [hidden]="usuario.activo">{{ constants.no }}</span>
-                    <span class="alert alert-success" [hidden]="!usuario.activo">{{ constants.si }}</span>
+                    <span class="alert alert-danger" [hidden]="usuario.activo==='true'">{{ constants.no }}</span>
+                    <span class="alert alert-success" [hidden]="usuario.activo==='false'">{{ constants.si }}</span>
                 </mat-cell>
               </ng-container>
 

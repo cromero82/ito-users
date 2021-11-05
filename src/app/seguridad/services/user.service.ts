@@ -10,12 +10,12 @@ import { CollectionResponse } from 'app/admin/shared/collection-response';
   providedIn: 'root'
 })
 export class UserService {
-    urlService = 'v1/usuario-api';
+    urlService = 'v1/usuarios-api';
     constructor(private http: HttpClient) {
     this.urlService = environment.apiUrl + this.urlService;
   }
   register(data: UsuarioModel): Observable<any> {
-    const endPoint = this.urlService + '/createSecure';
+    const endPoint = this.urlService + '/create';
     return this.http.post<any>(endPoint, data);
   }
 

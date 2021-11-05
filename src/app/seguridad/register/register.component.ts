@@ -35,30 +35,27 @@ export class RegisterComponent implements OnInit {
   url = 'https://www.positronx.io';
   ngOnInit(): void {
     this.registerForm = this._formBuilder.group({
-      nombre   : [this.userLogin.username, [Validators.required]],
-      apellido   : [this.userLogin.username, [Validators.required]],
-      email   : [this.userLogin.username, [Validators.required]],
-      password: [this.userLogin.password, Validators.required],
-      repetirPassword: [this.userLogin.repetirPassword, Validators.required],
-      rol: [null, Validators.required]
+      nombre   : [this.userLogin.nombreusuario, [Validators.required]],
+      apellido   : [this.userLogin.nombreusuario, [Validators.required]],
+      correo   : [this.userLogin.correo, [Validators.required]],
+      username: [this.userLogin.nombreusuario, Validators.required],
+      //repetirPassword: [this.userLogin.repetirPassword, Validators.required],
+      //rol: [null, Validators.required]
   });
   }
 
   submit(): void {
-    if (this.userLogin.password !== this.userLogin.repetirPassword) {
-      this.utilitiesService.simpleWarningMessage('La contraseña es distinta en cada campo', this.snackBar);
-      return;
-    }
+   
 
-    this.userLogin.username = this.userLogin.email;
+    /* this.userLogin.nombreusuario = this.userLogin.correo; */
     if (this.registerForm.valid) {
       //this.submitted = true;
-      this.userLogin.roles = [];
-      const rol =  {
+      /* this.userLogin.roles = []; */
+      /* const rol =  {
         id: 0,
         nombre: this.selected
       };
-      this.userLogin.roles.push(rol);
+      this.userLogin.roles.push(rol); */
       this.service.register(this.userLogin).subscribe(
         data => {
           this.status = 'finalizado';

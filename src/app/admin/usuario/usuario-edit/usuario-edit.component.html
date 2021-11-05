@@ -3,7 +3,33 @@
 
 <mat-dialog-content [formGroup]="form">
   <input type="hidden" formControlName="id" [(ngModel)]="usuario.id">
-  <input type="hidden" formControlName="avatar" [(ngModel)]="usuario.avatar">
+  
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="{{ constants.nombreusuario }}" formControlName="nombreusuario"
+          [(ngModel)]="usuario.nombreusuario" autocomplete="off" required>
+          <div *ngIf="submitted && f.nombreusuario.errors" class="invalid-feedback">
+            <div *ngIf="f.nombreusuario.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.nombreusuario.errors.max">{{ constants.valormaximo }} 25</div>
+          </div>
+      </mat-form-field>
+    </div>
+
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="{{ constants.correo }}" formControlName="correo"
+          [(ngModel)]="usuario.correo" autocomplete="off" required>
+          <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.password.errors.max">{{ constants.valormaximo }} 25</div>
+            <div *ngIf="f.password.errors.pattern">{{ constants.formato_correo }}</div>
+          </div>
+      </mat-form-field>
+    </div>
+
+  </div>
+  
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
     <div class="item" fxFlex>
       <mat-form-field class="w-50">
@@ -28,46 +54,7 @@
     </div>
   </div>
 
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
-    <div class="item" fxFlex>
-      <mat-form-field class="w-100">
-        <input matInput placeholder="{{ constants.correo }}" formControlName="email"
-          [(ngModel)]="usuario.email" autocomplete="off" required>
-          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">{{ constants.campoRequerido }}</div>
-            <div *ngIf="f.password.errors.max">{{ constants.valormaximo }} 25</div>
-            <div *ngIf="f.password.errors.pattern">{{ constants.formato_correo }}</div>
-          </div>
-      </mat-form-field>
-    </div>
-  </div>
-
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
-    <div class="item" fxFlex>
-      <mat-form-field class="w-50">
-        <input matInput placeholder="{{ constants.contrasenia }}" formControlName="password" [type]="'password'"
-          [(ngModel)]="usuario.password" autocomplete="off" required>
-          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">{{ constants.campoRequerido }}</div>
-            <div *ngIf="f.password.errors.minlength">{{ constants.valorMinimo }} 8 dígitos</div>
-            <div *ngIf="f.password.errors.pattern">{{ constants.formatoIncorrectoContrasena }}</div>
-          </div>
-      </mat-form-field>
-    </div>
-
-    <div class="item" fxFlex>
-      <mat-form-field class="w-50">
-        <input matInput placeholder="{{ constants.repetirContrasenia }}" formControlName="repetirPassword" [type]="'password'"
-          [(ngModel)]="usuario.repetirPassword" autocomplete="off" required>
-          <div *ngIf="submitted && f.repetirPassword.errors" class="invalid-feedback">
-            <div *ngIf="f.repetirPassword.errors.required">{{ constants.campoRequerido }}</div>
-            <div *ngIf="f.repetirPassword.errors.max">{{ constants.valormaximo }} 25</div>
-          </div>
-      </mat-form-field>
-    </div>
-  </div>
-
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+  <!-- <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
     <div class="item" fxFlex>
       <mat-label> Roles * </mat-label>
 
@@ -76,7 +63,7 @@
         </mat-selection-list>
 
     </div>
-  </div>
+  </div> -->
 <p></p>
   <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="0">
     <div class="item" fxFlex="50%">

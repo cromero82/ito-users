@@ -20,6 +20,10 @@ import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.compon
 
 export const AdminRoutes: Routes = [
   {
+    path: 'usuarios',
+      component: UsuarioAdminComponent
+  },
+  {
     path: 'clientes',
       component: ClienteAdminComponent
   }

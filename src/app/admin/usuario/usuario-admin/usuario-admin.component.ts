@@ -24,9 +24,10 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
   UsuarioCriteria: UsuarioCriteria = new UsuarioCriteria();
   Usuario: UsuarioModel = new UsuarioModel();
   displayedColumns = [
+      'nombreusuario',
+      'correo',
       'nombre',
       'apellido',
-      'roles',
       'activo',
       'actions'
   ];

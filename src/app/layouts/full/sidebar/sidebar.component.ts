@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
-import { TokenStorageService } from 'app/seguridad/services/token-storage.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
@@ -17,7 +16,6 @@ export class AppSidebarComponent implements OnDestroy {
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     public menuItems: MenuItems,
-    private tokenStorageService: TokenStorageService,
     private router: Router
   ) {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
@@ -26,7 +24,7 @@ export class AppSidebarComponent implements OnDestroy {
   }
 
   getUserName(): string {
-    return this.tokenStorageService.getNameUser();
+    return "";
   }
 
   ngOnDestroy(): void {
@@ -34,7 +32,6 @@ export class AppSidebarComponent implements OnDestroy {
   }
 
   finalizarSesion(): void {
-    this.tokenStorageService.signOut();
     this.router.navigate(['/login']);
   }
 }

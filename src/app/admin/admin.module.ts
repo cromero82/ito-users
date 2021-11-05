@@ -6,8 +6,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GeneralConfirmComponent } from './shared/components/general-confirm/general-confirm.component';
-import { TemaListComponent } from './tema/tema-list/tema-list.component';
-import { TemaEditComponent } from './tema/tema-edit/tema-edit.component';
 import { MatSelectFilterModule } from 'mat-select-filter';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { UsuarioAdminComponent } from './usuario/usuario-admin/usuario-admin.component';
@@ -25,7 +23,6 @@ export const AdminRoutes: Routes = [
 @NgModule({
   declarations: [
     GeneralConfirmComponent,
-    TemaListComponent, TemaEditComponent,
     UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe
   ],
   imports: [

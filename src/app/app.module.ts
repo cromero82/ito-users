@@ -14,11 +14,9 @@ import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './demo-material-module';
-import {SeguridadModule} from './seguridad/seguridad.module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
-import { AuthInterceptor } from './seguridad/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -36,14 +34,12 @@ import { AuthInterceptor } from './seguridad/auth-interceptor';
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
-    SeguridadModule,
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [
     {
       provide: LocationStrategy,   useClass: PathLocationStrategy
-    },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    }
   ],
   bootstrap: [AppComponent]
 })

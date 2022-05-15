@@ -10,7 +10,7 @@ import { CollectionResponse } from 'app/admin/shared/collection-response';
   providedIn: 'root'
 })
 export class UserService {
-    urlService = 'v1/usuarios-api';
+    urlService = 'v1/empleado-api';
     constructor(private http: HttpClient) {
     this.urlService = environment.apiUrl + this.urlService;
   }

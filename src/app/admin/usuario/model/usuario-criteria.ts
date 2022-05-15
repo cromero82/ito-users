@@ -27,10 +27,8 @@ export class UsuarioCriteria extends UsuarioModel  {
   /** Método encargado de crear uns instancia vacía del componente */
   constructor() {
       super();
-      this.nombreusuario = '';
       this.correo = '';
       this.nombre = '';
-      this.apellido = '';
   }
 
   /** Método encargado de construir el json de consulta de información para el servicio */
@@ -39,9 +37,6 @@ export class UsuarioCriteria extends UsuarioModel  {
       '&size=' + this.size +
       '&sortBy=' + this.sortBy +
       '&sortOrder=' + this.sortOrder+
-      '&nombreusuario='+ this.nombreusuario+
-      '&nombre='+ this.nombre+
-      '&apellido='+ this.apellido+
-      '&correo='+ this.correo;
+      '&nombre='+ this.nombre
   }
 }

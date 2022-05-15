@@ -20,16 +20,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   providers: [ ArrayListPipe ]
 })
 export class UsuarioAdminComponent implements OnInit, AfterViewInit {
-  titulo = 'Gestión de usuarios';
+  titulo = 'Gestión de empleados';
   MyDataSource: any;
   UsuarioCriteria: UsuarioCriteria = new UsuarioCriteria();
   Usuario: UsuarioModel = new UsuarioModel();
   displayedColumns = [
-      'nombreusuario',
       'correo',
       'nombre',
-      'apellido',
-      'activo',
       'actions'
   ];
   
@@ -63,9 +60,7 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
 
   initForm() {
    this.filterForm = this.formBuilder.group({
-    'nombreusuario': [null, null],
     'nombre': [null, null],
-    'apellido': [null, null],
     'correo': [null, null]
     });
 
@@ -100,17 +95,11 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
   }
 
   asignarFiltrosACriterios(): void {
-    if(this.filterForm.get('nombreusuario')?.value != null){
-      this.UsuarioCriteria.nombreusuario = this.filterForm.get('nombreusuario')?.value;
-    }
     if(this.filterForm.get('correo')?.value != null){
       this.UsuarioCriteria.correo = this.filterForm.get('correo')?.value;
     }
     if(this.filterForm.get('nombre')?.value != null){
       this.UsuarioCriteria.nombre = this.filterForm.get('nombre')?.value;
-    }
-    if(this.filterForm.get('apellido')?.value != null){
-      this.UsuarioCriteria.apellido = this.filterForm.get('apellido')?.value;
     }
   }
 

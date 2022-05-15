@@ -50,10 +50,7 @@ export class UsuarioEditComponent implements OnInit{
     }
    this.form = this.formBuilder.group({
     'id': [null, null],
-    'activo': [null, Validators.compose([Validators.required])],
-    'nombreusuario': [null, [Validators.required]],
     'nombre': [null, [Validators.required]],
-    'apellido': [null, [Validators.required]],
     'correo': [null, [
       Validators.required,
       Validators.minLength(10),
@@ -61,7 +58,6 @@ export class UsuarioEditComponent implements OnInit{
       Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')
       ]]
     });
-   this.form.get('activo')!.setValue(this.usuario.activo);
 
   }
 

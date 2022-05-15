@@ -3,15 +3,17 @@
 
 <mat-dialog-content [formGroup]="form">
   <input type="hidden" formControlName="id" [(ngModel)]="usuario.id">
+
   
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+
     <div class="item" fxFlex>
       <mat-form-field class="w-50">
-        <input matInput placeholder="{{ constants.nombreusuario }}" formControlName="nombreusuario"
-          [(ngModel)]="usuario.nombreusuario" autocomplete="off" required>
-          <div *ngIf="submitted && f.nombreusuario.errors" class="invalid-feedback">
-            <div *ngIf="f.nombreusuario.errors.required">{{ constants.campoRequerido }}</div>
-            <div *ngIf="f.nombreusuario.errors.max">{{ constants.valormaximo }} 25</div>
+        <input matInput placeholder="{{ constants.nombre }}" formControlName="nombre"
+          [(ngModel)]="usuario.nombre" autocomplete="off" required>
+          <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.nombre.errors.max">{{ constants.valormaximo }} 25</div>
           </div>
       </mat-form-field>
     </div>
@@ -28,30 +30,6 @@
       </mat-form-field>
     </div>
 
-  </div>
-  
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
-    <div class="item" fxFlex>
-      <mat-form-field class="w-50">
-        <input matInput placeholder="{{ constants.nombre }}" formControlName="nombre"
-          [(ngModel)]="usuario.nombre" autocomplete="off" required>
-          <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
-            <div *ngIf="f.nombre.errors.required">{{ constants.campoRequerido }}</div>
-            <div *ngIf="f.nombre.errors.max">{{ constants.valormaximo }} 25</div>
-          </div>
-      </mat-form-field>
-    </div>
-
-    <div class="item" fxFlex>
-      <mat-form-field class="w-50">
-        <input matInput placeholder="{{ constants.apellido }}" formControlName="apellido"
-          [(ngModel)]="usuario.apellido" autocomplete="off" required>
-          <div *ngIf="submitted && f.apellido.errors" class="invalid-feedback">
-            <div *ngIf="f.apellido.errors.required">{{ constants.campoRequerido }}</div>
-            <div *ngIf="f.apellido.errors.max">{{ constants.valormaximo }} 25</div>
-          </div>
-      </mat-form-field>
-    </div>
   </div>
 
 <p></p>

@@ -13,28 +13,14 @@
       <mat-card>
 
         <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
-          <div class="item" fxFlex>
-            <mat-form-field class="w-20">
-              <input matInput formControlName="nombreusuario" placeholder="Usuario" autocomplete="off">
-            </mat-form-field>
-          </div>
-      
-          <div class="item" fxFlex>
-              <mat-form-field class="w-20">
-                <input matInput formControlName="correo" placeholder="Email" autocomplete="off"> 
-              </mat-form-field>
-          </div>
 
           <div class="item" fxFlex>
             <mat-form-field class="w-20">
               <input matInput formControlName="nombre"  placeholder="Nombres" autocomplete="off">
             </mat-form-field>
         </div>
-          <div class="item" fxFlex>
-            <mat-form-field class="w-20">
-              <input matInput formControlName="apellido" placeholder="Apellidos" autocomplete="off">
-            </mat-form-field>
-        </div>
+
+        
         <div class="item" fxFlex>
           
             <button type="submit" (click)="searchData()" mat-button  style="width: 150px;" color="primary">Filtrar</button>
@@ -75,27 +61,12 @@
                   </mat-cell>
               </ng-container>
 
-              <ng-container matColumnDef="apellido">
-                <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.apellido}}</strong> </mat-header-cell>
-                <mat-cell *matCellDef="let usuario">
-                   {{usuario.apellido}}
-                </mat-cell>
-            </ng-container>
-
             <ng-container matColumnDef="correo">
               <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.correo}}</strong> </mat-header-cell>
               <mat-cell *matCellDef="let usuario">
                  {{usuario.correo}}
               </mat-cell>
           </ng-container>
-
-              <ng-container matColumnDef="activo">
-                <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{ constants.activo }}</strong></mat-header-cell>
-                <mat-cell *matCellDef="let usuario" [attr.data-label]="constants.activo">
-                    <span class="alert alert-danger" [hidden]="usuario.activo==='true'">{{ constants.no }}</span>
-                    <span class="alert alert-success" [hidden]="usuario.activo==='false'">{{ constants.si }}</span>
-                </mat-cell>
-              </ng-container>
 
               <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef><strong>{{ constants.acciones }}</strong></mat-header-cell>

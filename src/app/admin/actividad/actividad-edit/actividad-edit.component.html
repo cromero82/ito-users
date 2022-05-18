@@ -1,1 +1,83 @@
-<p>actividad-edit works!</p>
+<h2 mat-dialog-title>{{ constants.editar }} Actividad</h2>
+<p></p>
+
+<mat-dialog-content [formGroup]="form">
+  <input type="hidden" formControlName="id" [(ngModel)]="actividad.id">
+  
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="Nombre" formControlName="nombre"
+          [(ngModel)]="actividad.nombre" autocomplete="off" required>
+          <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.nombre.errors.max">{{ constants.valormaximo }} 25</div>
+          </div>
+      </mat-form-field>
+    </div>
+
+        <div class="item" fxFlex>
+          <mat-form-field  class="w-50">
+            <mat-select formControlName="empleadoAsignado"  placeholder="Empleado asignado">
+              <mat-option *ngFor="let empleado of empleadoList" [value]="empleado">
+              {{empleado.nombre}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="submitted && f.empleado.errors">
+            <div *ngIf="f.empleado.errors.required">{{ constants.campoRequerido }}</div>
+          </mat-error>
+          </mat-form-field>
+        </div>
+
+  </div>
+  
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+
+      <div class="item" fxFlex>
+        <mat-form-field class="w-50">
+          <input matInput placeholder="Fecha planeada de finalización" formControlName="fechaPlaneadaFinalizacion"
+            [(ngModel)]="actividad.fechaPlaneadaFinalizacion" autocomplete="off" required>
+            <div *ngIf="submitted && f.fechaFinalizacion.errors" class="invalid-feedback">
+              <div *ngIf="f.fechaFinalizacion.errors.required">{{ constants.campoRequerido }}</div>
+            </div>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="Fecha finalización" formControlName="fechaFinalizacion"
+          [(ngModel)]="actividad.fechaFinalizacion" autocomplete="off">
+      </mat-form-field>
+    </div>
+  </div>
+  
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+      <div class="item" fxFlex>
+        <mat-form-field class="w-50">
+          <input matInput placeholder="dias de retraso" formControlName="diasRetraso"
+            [(ngModel)]="actividad.diasRetraso" autocomplete="off"  disabled="true">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="item" fxFlex>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="Estado" formControlName="statusDescr"
+          [(ngModel)]="actividad.statusDescr" autocomplete="off" disabled="true" >
+      </mat-form-field>
+    </div>
+  </div>
+
+</mat-dialog-content>
+
+<mat-divider class="mat-divider mat-divider-horizontal"></mat-divider>
+
+<mat-dialog-actions align="end">
+  <button mat-button color="warn" (click)="close()">
+    <mat-icon class="m-1">close</mat-icon>{{ constants.cancelar }}
+  </button>
+  <button mat-raised-button [disabled]="disableSubmit" color="primary" (click)="onSubmit()">
+    <mat-icon class="m-1">save</mat-icon>{{ constants.guardar }}
+  </button>
+</mat-dialog-actions>

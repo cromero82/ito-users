@@ -24,6 +24,11 @@ export class UserService {
     return this.http.put<any>(endPoint, data);
   }
 
+  findAll(): Observable<UsuarioModel[]> {
+    const endpoint = this.urlService +  '/findAll';
+    return this.http.get<UsuarioModel[]>(endpoint);
+  }
+
   findAllEstudiantes(): Observable<UsuarioModel[]> {
     const endpoint = this.urlService +  '/findAllStudends';
     return this.http.get<UsuarioModel[]>(endpoint);

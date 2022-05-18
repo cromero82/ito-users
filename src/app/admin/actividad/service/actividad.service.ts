@@ -15,7 +15,7 @@ export class ActividadService {
   this.urlService = environment.apiUrl + this.urlService;
 }
 register(data: ActividadModel): Observable<any> {
-  const endPoint = this.urlService + '/create';
+  const endPoint = this.urlService + '';
   return this.http.post<any>(endPoint, data);
 }
 

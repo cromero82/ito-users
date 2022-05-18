@@ -3,6 +3,7 @@ import { Empleado } from "./empleado";
 export class ActividadModel {
     id!: number;
   nombre!: string;
+  statusDescr!: string;
   status!: number;
   empleadoAsignado!: Empleado;
   fechaCreacion!: Date;
@@ -14,5 +15,6 @@ export class ActividadModel {
     this.status = 0;
     this.empleadoAsignado = new Empleado();
     this.diasRetraso = 0;
+    this.statusDescr = 'Pendiente'
   }
 }

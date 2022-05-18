@@ -12,18 +12,24 @@ import { UsuarioAdminComponent } from './usuario/usuario-admin/usuario-admin.com
 import { UsuarioEditComponent } from './usuario/usuario-edit/usuario-edit.component';
 import { ArrayListPipe } from './pipe/array-list.pipe';
 import { ChartistModule } from 'ng-chartist';
+import { ActividadAdminComponent } from './actividad/actividad-admin/actividad-admin.component';
+import { ActividadEditComponent } from './actividad/actividad-edit/actividad-edit.component';
 
 export const AdminRoutes: Routes = [
   {
     path: 'usuarios',
       component: UsuarioAdminComponent
+  },
+  {
+    path: 'actividades',
+      component: ActividadAdminComponent
   }
 ];
 
 @NgModule({
   declarations: [
     GeneralConfirmComponent,
-    UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe
+    UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe, ActividadAdminComponent, ActividadEditComponent
   ],
   imports: [
     CommonModule,

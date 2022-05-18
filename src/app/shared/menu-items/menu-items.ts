@@ -9,7 +9,8 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'usuarios', name: 'Gestión empleados', type: 'link', icon: 'supervisor_account'},
+  { state: 'actividades', name: 'Actividades', type: 'link', icon: 'supervisor_account'},
+  { state: 'usuarios', name: 'Gestión empleados', type: 'link', icon: 'supervisor_account'}
 ];
 
 @Injectable()

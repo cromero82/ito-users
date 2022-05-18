@@ -9,7 +9,7 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/usuarios',
+        redirectTo: '/actividades',
         pathMatch: 'full'
       },
       {

@@ -25,6 +25,11 @@ export class ActividadAdminComponent implements OnInit, AfterViewInit {
   displayedColumns = [
       'nombre',
       'status',
+      'fechaCreacion',
+      'fechaPlaneadaFinalizacion',
+      'fechaFinalizacion',
+      'diasRetraso',
+      'empleadoAsignado',
       'actions'
   ];
   
@@ -35,13 +40,13 @@ export class ActividadAdminComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: false })
   sort: MatSort = new MatSort;
 
-  usuarioDatasource: ActividadDatasourceService<ActividadModel>;
+  actividadDatasource: ActividadDatasourceService<ActividadModel>;
   loading = true;
   constants = CONSTANTS_SHARED;
   disabledButton = false;
 
   constructor(
-    private userService: ActividadService,
+    private actividadService: ActividadService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
     private utilitiesService: UtilitiesService,
@@ -52,7 +57,7 @@ export class ActividadAdminComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
       // const grupoSerializado =  this.tempDataService.getDataNivel1();
-      this.usuarioDatasource = new ActividadDatasourceService(this.userService);
+      this.actividadDatasource = new ActividadDatasourceService(this.actividadService);
       this.initForm();
   }
 
@@ -66,7 +71,7 @@ export class ActividadAdminComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.paginator._intl.itemsPerPageLabel = this.constants.itemPorPagina;
-      this.usuarioDatasource.loadingSubject$.subscribe( (_loading: boolean) => {
+      this.actividadDatasource.loadingSubject$.subscribe( (_loading: boolean) => {
           this.loading = _loading;
       });
 
@@ -74,7 +79,7 @@ export class ActividadAdminComponent implements OnInit, AfterViewInit {
       this.sort.sortChange.subscribe((dir: any) => {
           this.searchData();
       });
-      this.usuarioDatasource.errorSubject$.subscribe( (resultError: any) => {
+      this.actividadDatasource.errorSubject$.subscribe( (resultError: any) => {
         if ( resultError.ok !== undefined && resultError.ok === false) {
           this.utilitiesService.actionErrorMessages(resultError, this.snackBar);
         }
@@ -84,12 +89,12 @@ export class ActividadAdminComponent implements OnInit, AfterViewInit {
 
   searchData(): void {
       this.ActividadCriteria.setTableElements(this.paginator, this.sort);
-      this.usuarioDatasource.sort = this.sort;
-      this.usuarioDatasource.paginator = this.paginator;
+      this.actividadDatasource.sort = this.sort;
+      this.actividadDatasource.paginator = this.paginator;
       
       this.asignarFiltrosACriterios();
 
-      this.usuarioDatasource.search(this.ActividadCriteria);
+      this.actividadDatasource.search(this.ActividadCriteria);
   }
 
   asignarFiltrosACriterios(): void {

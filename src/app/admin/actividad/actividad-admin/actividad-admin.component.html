@@ -42,36 +42,64 @@
       </div>
       <div class="center">
         <div [hidden]="loading">
-            <mat-table #table [dataSource]="usuarioDatasource"
+            <mat-table #table [dataSource]="actividadDatasource"
                        matSort
                        matSortActive="nombre"
                        matSortDirection="asc">
   
-                  <!-- <ng-container matColumnDef="nombreusuario">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.nombreusuario}}</strong> </mat-header-cell>
-                        <mat-cell *matCellDef="let usuario">
-                           {{usuario.nombreusuario}}
-                        </mat-cell>
-                    </ng-container> -->
-  
                 <ng-container matColumnDef="nombre">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.nombre}}</strong> </mat-header-cell>
-                    <mat-cell *matCellDef="let usuario">
-                       {{usuario.nombre}}
+                    <mat-cell *matCellDef="let actividad">
+                       {{actividad.nombre}}
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="fechaCreacion">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><strong>Fecha creación</strong> </mat-header-cell>
+                    <mat-cell *matCellDef="let actividad">
+                       {{actividad.fechaCreacion}}
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="fechaPlaneadaFinalizacion">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><strong>Fecha planeada fin</strong> </mat-header-cell>
+                    <mat-cell *matCellDef="let actividad">
+                       {{actividad.fechaPlaneadaFinalizacion}}
                     </mat-cell>
                 </ng-container>
   
               <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef mat-sort-header><strong>Status</strong> </mat-header-cell>
-                <mat-cell *matCellDef="let usuario">
-                   {{usuario.status}}
-                </mat-cell>
-            </ng-container>
+                    <mat-cell *matCellDef="let actividad">
+                    {{actividad.status}}
+                    </mat-cell>
+              </ng-container>
+
+                <ng-container matColumnDef="empleadoAsignado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><strong>Asignado a</strong> </mat-header-cell>
+                    <mat-cell *matCellDef="let actividad">
+                       {{actividad.empleadoAsignado != undefined? actividad.empleadoAsignado.nombre : '' }}
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="fechaFinalizacion">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><strong>Fecha finalización</strong> </mat-header-cell>
+                    <mat-cell *matCellDef="let actividad">
+                       {{actividad.fechaFinalizacion != undefined? actividad.fechaFinalizacion : '' }}
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="diasRetraso">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><strong>Dias retraso</strong> </mat-header-cell>
+                    <mat-cell *matCellDef="let actividad">
+                       {{actividad.diasRetraso }}
+                    </mat-cell>
+                </ng-container>
   
                 <ng-container matColumnDef="actions">
                   <mat-header-cell *matHeaderCellDef><strong>{{ constants.acciones }}</strong></mat-header-cell>
-                  <mat-cell *matCellDef="let usuario" [attr.data-label]="constants.acciones">
-                    <button mat-raised-button  (click)="edit(usuario)" [disabled]="disabledButton" color="primary" class="m-1">
+                  <mat-cell *matCellDef="let actividad" [attr.data-label]="constants.acciones">
+                    <button mat-raised-button  (click)="edit(actividad)" [disabled]="disabledButton" color="primary" class="m-1">
                       <mat-icon matTooltip="Editar" matTooltipPosition="above">edit</mat-icon>
                     </button>
                   </mat-cell>
@@ -81,7 +109,7 @@
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
             </mat-table>
   
-            <mat-paginator #paginator [length]="usuarioDatasource.counter$ | async"
+            <mat-paginator #paginator [length]="actividadDatasource.counter$ | async"
                            [pageIndex]="0"
                            [pageSize]="5"
                            [pageSizeOptions]="[5, 10, 15]">

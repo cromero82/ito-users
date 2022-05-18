@@ -24,12 +24,12 @@ export class ActividadAdminComponent implements OnInit, AfterViewInit {
   Actividad: ActividadModel = new ActividadModel();
   displayedColumns = [
       'nombre',
+      'empleadoAsignado',
       'status',
-      'fechaCreacion',
+      'diasRetraso',
       'fechaPlaneadaFinalizacion',
       'fechaFinalizacion',
-      'diasRetraso',
-      'empleadoAsignado',
+      'fechaCreacion',      
       'actions'
   ];
   

@@ -33,7 +33,6 @@
   
       <mat-card-subtitle>{{ titulo}}</mat-card-subtitle>
   
-  
       <div *ngIf="loading=== true" fxLayout="column" fxLayoutAlign="center center">
         <mat-spinner [diameter]="50" color="primary"></mat-spinner>
       </div>
@@ -71,7 +70,7 @@
               <ng-container matColumnDef="status">
                 <mat-header-cell *matHeaderCellDef mat-sort-header><strong>Status</strong> </mat-header-cell>
                     <mat-cell *matCellDef="let actividad">
-                    {{actividad.status}}
+                    {{actividad.status == 0? 'Pendiente': 'Finalizada'}}
                     </mat-cell>
               </ng-container>
 
